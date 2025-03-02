@@ -19,12 +19,10 @@ const PORT = 9535; // ✅ Fixed PORT issue
 app.use(cors());
 
 // Serve static files (Ensure your frontend files are in a 'public' folder)
-app.use(express.static(path.join(__dirname, 'public')));
-
-// Serve index.html for root route
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    res.sendFile(path.join(__dirname, 'index.html'));
 });
+
 
 io.on('connection', (socket) => {
     console.log('A user connected:', socket.id);
